@@ -1,29 +1,26 @@
-package com.udacity.gradle.builditbigger;
+package com.antym.jokeactivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.antym.JokeProvider;
-import com.antym.jokeactivity.JokeActivity;
+public class JokeActivity extends AppCompatActivity {
 
-
-public class MainActivity extends ActionBarActivity {
-
+    public static String JOKE_KEY = "Joke key";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_joke);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_joke, menu);
         return true;
     }
 
@@ -41,14 +38,4 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void tellJoke(View view){
-        JokeProvider jp = new JokeProvider();
-        String joke = jp.getJoke();
-        Intent jokeIntent = new Intent(this, com.antym.jokeactivity.JokeActivity.class);
-        jokeIntent.putExtra(JokeActivity.JOKE_KEY, joke);
-        startActivity(jokeIntent);
-    }
-
-
 }
