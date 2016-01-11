@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.antym.JokeProvider;
 import com.antym.jokeactivity.JokeActivity;
 
 
@@ -45,12 +44,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view){
-        JokeProvider jp = new JokeProvider();
-        String joke = jp.getJoke();
+        new EndpointsAsyncTask(this).execute(new Pair<Context, String>(this, "Manfred"));
+    }
+
+    public void displayJoke(String jokeResponse) {
+        String joke = jokeResponse;
         Intent jokeIntent = new Intent(this, com.antym.jokeactivity.JokeActivity.class);
         jokeIntent.putExtra(JokeActivity.JOKE_KEY, joke);
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
-        //startActivity(jokeIntent);
+        startActivity(jokeIntent);
     }
 
 
