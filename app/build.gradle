@@ -27,7 +27,7 @@ dependencies {
     // Added for AdMob
     compile 'com.google.android.gms:play-services-ads:8.4.0'
     // Add jokes library
-    compile project(':jokes')
+    //compile project(':jokes')
     // Add jokes activity
     compile project(':jokeactivity2')
     compile project(path: ':backend', configuration: 'android-endpoints')
