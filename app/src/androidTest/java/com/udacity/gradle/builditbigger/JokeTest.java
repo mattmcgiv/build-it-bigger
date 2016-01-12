@@ -26,11 +26,6 @@ public class JokeTest extends ActivityInstrumentationTestCase2<MainActivity> {
         jokeText = (TextView) mainActivity.findViewById(R.id.joke_textview);
     }
 
-    public void testPreconditions() {
-        assertNotNull("Problem: mainActivity is null.", mainActivity);
-        assertNotNull("Problem: jokeText is null.", jokeText);
-    }
-
     public void testJokeReceived() {
         //Act
         new EndpointsAsyncTask(mainActivity).execute(new Pair<Context, String>(mainActivity, "Manfred"));

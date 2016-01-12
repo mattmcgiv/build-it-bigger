@@ -37,8 +37,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // Added for AdMob
     freeCompile 'com.google.android.gms:play-services-ads:8.4.0'
-    // Add jokes library
-    //compile project(':jokes')
+    // Note: ':jokes' project dependency addded to backend
     // Add jokes activity
     compile project(':jokeactivity2')
     compile project(path: ':backend', configuration: 'android-endpoints')
